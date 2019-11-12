@@ -1,0 +1,60 @@
+---
+date: 2019-11-03 17:11
+status: public
+title: 2019-11-03
+---
+
+# 发布Spring项目
+# nginx安装
+##　资料
+1. [linux安装](http://nginx.org/en/linux_packages.html)
+2. [新手教程](http://nginx.org/en/docs/beginners_guide.html)
+## 跟随官网步骤
+```sh
+sudo apt install curl gnupg2 ca-certificates lsb-release
+echo "deb http://nginx.org/packages/ubuntu `lsb_release -cs` nginx" \
+    | sudo tee /etc/apt/sources.list.d/nginx.list
+curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
+sudo apt-key fingerprint ABF5BD827BD9BF62
+# 573B FD6B 3D8F BC64 1079  A6AB ABF5 BD82 7BD9 BF62
+sudo apt update
+sudo apt install nginx
+```
+
+## 测试访问
+http://ip地址
+
+## 使用
+1. By default, the configuration file is named nginx.conf and placed in the directory /usr/local/nginx/conf, /etc/nginx, or /usr/local/etc/nginx.
+2. nginx -s signal(stop/quit/reopen/reload)
+3. ps -ax | grep nginx
+
+# java
+[StackOverflow各种下载方式](https://stackoverflow.com/questions/10268583/downloading-java-jdk-on-linux-via-wget-is-shown-license-page-instead)
+最后还是用xftp拷贝进去的
+mv to /usr/java
+tar  -zxvf  jdk-8u181-linux-x64.tar.gz
+vim /etc/profile
+```sh
+export JAVA_HOME=/usr/java/jdk1.8.0_231
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib:$CLASSPATH
+export JAVA_PATH=${JAVA_HOME}/bin:${JRE_HOME}/bin
+export PATH=$PATH:${JAVA_PATH}
+```
+source /etc/profile让profile文件立即生效
+
+# Tomcat
+[downloads](https://tomcat.apache.org/download-90.cgi)
+wget http://apache-mirror.rbc.ru/pub/apache/tomcat/tomcat-9/v9.0.27/bin/apache-tomcat-9.0.27.tar.gz
+
+# mysql
+[官方教程](https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/)
+[apt repo](https://dev.mysql.com/downloads/repo/apt/)
+##　dpt
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.14-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.14-1_all.deb
+sudo apt-get update
+sudo apt-get install mysql-server
+
+sudo service mysql [status|start|stop]
