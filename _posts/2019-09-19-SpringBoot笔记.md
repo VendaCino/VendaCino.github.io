@@ -1,9 +1,14 @@
 ---
-layout: post
 date: 2019-09-19 11:11
+layout: post
 status: public
 title: SpringBoot笔记
 ---
+
+# 实战笔记
+## 静态资源
+优先级顺序/META-INF/resources>resources>static>public
+
 # SpringBoot精要
 1. 自动配置： 会根据ClassPath里的库自动生成一些常用模板Bean，比如JDBC H2
 2. 起步依赖：自动引入所需库
