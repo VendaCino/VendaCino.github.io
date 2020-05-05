@@ -2,6 +2,13 @@
 # This file contains configuration flags to customize your site
 #
 
+title: Leap Day theme
+description: Leap Day is a theme for GitHub Pages.
+show_downloads: true
+google_analytics:
+theme: jekyll-theme-leap-day
+
+
 # Name of your site (displayed in the header)
 name: Your Name
 
